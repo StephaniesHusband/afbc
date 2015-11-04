@@ -6,53 +6,45 @@
       <title>Adamsville First BC Logos</title>
 
       <style>
-			body{font:12px/1.2 Verdana, sans-serif; padding:0 10px;}
-			a:link, a:visited{text-decoration:none; color:#416CE5; border-bottom:1px solid #416CE5;}
-         h2{font-size:13px; margin:15px 0 0 0;}
-         .favored:after {
-            content: "*favored";
-            text-transform: uppercase;
-            font-size: smaller;
-            vertical-align: super;
+         body {
+            font: 12px/1.2 Verdana, sans-serif;
+         }
+
+         section {
+            float: left;
+            display: inline-block;
+            text-align: center;
          }
       </style>
 
-      <link rel="stylesheet" href="css/colorbox.css">
       <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.3/jquery.colorbox-min.js"></script>
       <script>
          $(document).ready(function() {
-            $(".group1").colorbox({ rel:"group1" });
-            $(".group2").colorbox({ rel:"group2" });
          });
       </script>
    </head>
    <body> 
-      <h2>Newest Designs</h2>
-      <p><a class="group1" title="#6 - blue" href="logos/afbc6.png">#6</a></p>
-      <p><a class="group1" title="#7 - pastels, no baptist" href="logos/afbc7.png">#7</a></p>
-      <p><a class="group1" title="#7 - b/w version, no baptist" href="logos/afbc7_BW.png">#7 in B/W</a></p>
-      <p class="favored"><a class="group1" title="#7b - pastels, baptist added" href="logos/afbc7b.png">#7b</a></p>
-      <p><a class="group1" title="#7b - b/w version, baptist added" href="logos/afbc7b_BW.png">#7b in B/W</a></p>
-      <p><a class="group1" title="#8 - red" href="logos/afbc8.png">#8</a></p>
+      <h1>Full Logo</h1>
+      <img src="logos/logo.png">
 
-      <h2>Older Designs</h2>
-      <p><a class="group2" title="#1" href="logos/afbc1.png">#1</a></p>
-      <p><a class="group2" title="#2" href="logos/afbc2.png">#2</a></p>
-      <p><a class="group2" title="#3" href="logos/afbc5.png">#3</a></p>
-
-      <!--
-      <div style='display:none'>
-			<div id='inline_content' style='padding:10px; background:#fff;'>
-			<p><strong>This content comes from a hidden element on this page.</strong></p>
-			<p>The inline option preserves bound JavaScript events and changes, and it puts the content back where it came from when it is closed.</p>
-			<p><a id="click" href="#" style='padding:5px; background:#ccc;'>Click me, it will be preserved!</a></p>
-			
-			<p><strong>If you try to open a new Colorbox while it is already open, it will update itself with the new content.</strong></p>
-			<p>Updating Content Example:<br />
-			<a class="ajax" href="../content/ajax.html">Click here to load new content</a></p>
-			</div>
-      </div>
-      -->
+      <h2>Variations</h2>
+      <section>
+         <h3>Circles</h3>
+         <img src="logos/circle.png">
+      </section>
+      <section>
+         <h3>First Baptist</h3>
+         <img src="logos/firstBaptist.png">
+      </section>
+      <section>
+         <h3>Grayscale</h3>
+         <img src="logos/bw.png">
+      </section>
+      <section>
+         <h3>Dithered</h3>
+         <img src="logos/dithered.png">
+      </section>
+         </tr>
+      </table>
    </body> 
 </html>

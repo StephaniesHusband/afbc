@@ -9,35 +9,39 @@
          body {
             font: 12px/1.2 Verdana, sans-serif;
          }
+         h1 {
+            border-top: 2px solid black;
+         }
       </style>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <script>
+         $(function() {
+            $("#svgHeight").on("change", function(ev) {
+               $("#svgLogo").css("height", $(this).val());
+            });
+         });
+      </script>
    </head>
    <body> 
-      <h1>Our Base SVG - Use this to create all others</h1>
-      <img src="logos/afbclogo.svg">
+      <h1>Our Base SVG - Use this to create all others. Any format. Any size.</h1>
+      <h2>If you're here and don't know what an SVG is, then don't bother with this one. Also if it looks different from the
+      logos below, you may not have the necessary font(s) installed on the machine you're viewing this page with. Our logo
+      requires a font by the name of "Tw Cen MT" (Regular and Italic). If you have MS Office, you probably have it already.</h2>
+      <!--<div>
+         <label>Adjust Size:</label><input id="svgHeight" type="range" min="5" max="3000" step="1">
+      </div>
+      -->
+      <img id="svgLogo" src="logos/afbclogo.svg">
 
-      <h1>Main FULL Logo in PNG - Exported from Base SVG</h1>
-      <img src="logos/afbclogo.png">
+      <h1>Small - 300x195</h1>
+      <img src="logos/afbclogo_sm.png">
 
-      <h2>Old PNG-based variations - Do not use these. Only here for ideas.</h2>
-      <section>
-         <h3>Grayscale</h3>
-         <img src="logos/oldPngVersions/logo_grayscale.png">
-      </section>
-      <section>
-         <h3>No Circles</h3>
-         <img src="logos/oldPngVersions/logo_nocircles.png">
-      </section>
-      <section>
-         <h3>Dithered</h3>
-         <img src="logos/oldPngVersions/logo_dithered.png">
-      </section>
-      <section>
-         <h3>No Text, With Dot</h3>
-         <img src="logos/oldPngVersions/notextwithdot.png">
-      </section>
-      <section>
-         <h3>No Text, Without Dot</h3>
-         <img src="logos/oldPngVersions/notextwithoutdot.png">
-      </section>
+      <h1>Medium - 720x468</h1>
+      <img src="logos/afbclogo_md.png">
+
+      <h1>Large - 2000x1301</h1>
+      <img src="logos/afbclogo_lg.png">
    </body> 
 </html>

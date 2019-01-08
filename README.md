@@ -1,2 +1,2 @@
 # afbc
-test Adamsville First BC stuff
+Adamsville First Baptist Church stuff

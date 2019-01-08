@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="msapplication-TileColor" content="#2b5797">
+      <meta name="theme-color" content="#ffffff">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap@latest/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css">
+      <title>Bible Reading Plan</title>
+   </head>
+   <body>
+      <div id="app">
+         <b-table striped head-variant="dark" responsive stacked="sm"
+            :items="plan"
+            :fields="fields"
+            @row-clicked="onRowClicked">
+            <template slot="isRead" slot-scope="row">
+               <b-form-checkbox @click.native.stop @change="saveBlob" v-model="row.item.isRead"></b-form-checkbox>
+            </template>
+         </b-table>
+      </div>
+   </body>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue.min.js"></script>
+   <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+   <script src="bible.js"></script>
+</html>

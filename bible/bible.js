@@ -13,6 +13,13 @@ var vm = new Vue({
       ],
       plan: []
    },
+   computed: {
+      dayOfYear: function() {
+         var dt = new Date();
+
+         return (Date.UTC(dt.getFullYear(), dt.getMonth(), dt.getDate()) - Date.UTC(dt.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
+      }
+   },
    created() {
       this.populate();
    },
@@ -48,21 +55,16 @@ var vm = new Vue({
 
                // Wait for the plan to be drawn and then find the first unread row
                setTimeout(function() {
-                  var unreadNdx;
                   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                   var today = new Date();
                   var todayNdx = me.plan.findIndex((row) => row.date === (months[today.getMonth()] + " " + ("0"+today.getDate()).slice(-2)));
-                  var top;
+                  var unreadNdx = me.plan.findIndex((row) => !row.isRead)+1; // Add 1 to account for header
+                  var top = document.getElementsByTagName("table")[0].rows[unreadNdx].offsetTop;
 
-                  me.plan[todayNdx]._rowVariant = "info";
+                  // Highlight today
+                  document.querySelector(`tr:nth-child(${todayNdx})`).className = "table-info";
 
-                  // Force _rowVariant to apply
-                  me.$forceUpdate();
-
-                  // The whole document scrolls so use "html". Do this after $forceUpdate.
-                  unreadNdx = me.plan.findIndex((row) => !row.isRead)+1; // Add 1 to account for header
-                  top = document.getElementsByTagName("table")[0].rows[unreadNdx].offsetTop;
-
+                  // Scroll to today
                   document.querySelector("html").scrollTop = top;
 
                }, 250);

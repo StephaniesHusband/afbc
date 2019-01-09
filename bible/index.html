@@ -16,14 +16,14 @@
    </head>
    <body>
       <div id="app">
-         <div class="ml-3 mr-3">
+         <header class="ml-3 mr-3">
             <h6>Progress:</h6>
             <b-progress max="365" show-value variant="success" class="mb-3">
                <b-progress-bar v-cloak :value="dayOfYear">
                   Day: {{ dayOfYear }}
                </b-progress-bar>
             </b-progress>
-         </div>
+         </header>
          <b-table striped head-variant="dark" responsive stacked="sm"
             :items="plan"
             :fields="fields"

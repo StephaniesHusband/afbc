@@ -58,16 +58,23 @@ var vm = new Vue({
                   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                   var today = new Date();
                   var todayNdx = me.plan.findIndex((row) => row.date === (months[today.getMonth()] + " " + ("0"+today.getDate()).slice(-2)));
-                  var unreadNdx = me.plan.findIndex((row) => !row.isRead)+1; // Add 1 to account for header
-                  var top = document.getElementsByTagName("table")[0].rows[unreadNdx].offsetTop;
+                  var unreadNdx = me.plan.findIndex((row) => !row.isRead)+1;
+                  var $table = document.querySelector("table");
+                  var rowTop;
 
-                  // Highlight today
-                  document.querySelector(`tr:nth-child(${todayNdx})`).className = "table-info";
+                  // If we are in a stacked table then there is no header, else account for it.
+                  if (!document.querySelector(".b-table-stacked-sm")) {
+                     unreadNdx++;
+                  }
+                  rowTop = $table.rows[unreadNdx].offsetTop;
+
+                  // Highlight today. Add 1 because nth-child is 1-based.
+                  document.querySelector(`tr:nth-child(${todayNdx+1})`).className = "table-info";
 
                   // Scroll to today
-                  document.querySelector("html").scrollTop = top;
+                  document.querySelector("html").scrollTop = (rowTop + $table.offsetTop);
 
-               }, 250);
+               }, 2000); // TODO there has to be a better way
             });
       }
    }

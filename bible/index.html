@@ -12,6 +12,8 @@
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
       <link rel="stylesheet" href="https://unpkg.com/bootstrap@latest/dist/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/loader.css">
       <title>Bible Reading Plan</title>
    </head>
    <body>
@@ -24,12 +26,22 @@
                </b-progress-bar>
             </b-progress>
          </header>
-         <b-table striped head-variant="dark" responsive stacked="sm"
+         <b-table striped head-variant="dark" responsive stacked="sm" show-empty
+            busy.sync="isBusy"
             :items="plan"
             :fields="fields"
             @row-clicked="onRowClicked">
             <template slot="isRead" slot-scope="row">
                <b-form-checkbox @click.native.stop @change="saveBlob" v-model="row.item.isRead"></b-form-checkbox>
+            </template>
+            <template slot="empty">
+               <div v-if="isBusy" class="text-center text-info">
+                  <div class="loader"></div>
+                  Loading Bible Reading Plan
+               </div>
+               <div v-else class="text-center">
+                  Unable to get Bible Reading Plan.
+               </div>
             </template>
          </b-table>
       </div>
